@@ -39,7 +39,11 @@
             this.lb_exp_day = new System.Windows.Forms.Label();
             this.lb_exp_highexp = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lvexpday = new System.Windows.Forms.ListView();
+            this.lvday = new System.Windows.Forms.ListView();
+            this.c1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.c2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.c3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.c4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_exp_resatistic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -178,23 +182,49 @@
             this.label11.TabIndex = 14;
             this.label11.Text = "日统计数据：";
             // 
-            // lvexpday
+            // lvday
             // 
-            this.lvexpday.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvday.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvexpday.GridLines = true;
-            this.lvexpday.HideSelection = false;
-            this.lvexpday.Location = new System.Drawing.Point(22, 394);
-            this.lvexpday.Name = "lvexpday";
-            this.lvexpday.Size = new System.Drawing.Size(1032, 592);
-            this.lvexpday.TabIndex = 15;
-            this.lvexpday.UseCompatibleStateImageBehavior = false;
-            this.lvexpday.View = System.Windows.Forms.View.Details;
-            this.lvexpday.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.lvday.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.c1,
+            this.c2,
+            this.c3,
+            this.c4});
+            this.lvday.Font = new System.Drawing.Font("宋体", 16F);
+            this.lvday.GridLines = true;
+            this.lvday.HideSelection = false;
+            this.lvday.Location = new System.Drawing.Point(22, 394);
+            this.lvday.Name = "lvday";
+            this.lvday.Size = new System.Drawing.Size(1030, 612);
+            this.lvday.TabIndex = 15;
+            this.lvday.UseCompatibleStateImageBehavior = false;
+            this.lvday.View = System.Windows.Forms.View.Details;
+            // 
+            // c1
+            // 
+            this.c1.Text = "日期";
+            this.c1.Width = 200;
+            // 
+            // c2
+            // 
+            this.c2.Text = "总收入";
+            this.c2.Width = 150;
+            // 
+            // c3
+            // 
+            this.c3.Text = "总支出";
+            this.c3.Width = 150;
+            // 
+            // c4
+            // 
+            this.c4.Text = "总收益";
+            this.c4.Width = 150;
             // 
             // btn_exp_resatistic
             // 
+            this.btn_exp_resatistic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_exp_resatistic.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_exp_resatistic.Font = new System.Drawing.Font("宋体", 16F);
             this.btn_exp_resatistic.Location = new System.Drawing.Point(855, 327);
@@ -203,14 +233,15 @@
             this.btn_exp_resatistic.TabIndex = 17;
             this.btn_exp_resatistic.Text = "重新统计";
             this.btn_exp_resatistic.UseVisualStyleBackColor = false;
+            this.btn_exp_resatistic.Click += new System.EventHandler(this.btn_exp_resatistic_Click);
             // 
             // FrmDaySatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 991);
+            this.ClientSize = new System.Drawing.Size(1064, 1011);
             this.Controls.Add(this.btn_exp_resatistic);
-            this.Controls.Add(this.lvexpday);
+            this.Controls.Add(this.lvday);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lb_exp_highexp);
             this.Controls.Add(this.lb_exp_day);
@@ -224,7 +255,7 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "FrmDaySatistics";
-            this.Text = "FrmDaySatistics";
+            this.Text = "记账助手 日统计数据";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,7 +274,11 @@
         private System.Windows.Forms.Label lb_exp_day;
         private System.Windows.Forms.Label lb_exp_highexp;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListView lvexpday;
+        private System.Windows.Forms.ListView lvday;
         private System.Windows.Forms.Button btn_exp_resatistic;
+        private System.Windows.Forms.ColumnHeader c1;
+        private System.Windows.Forms.ColumnHeader c2;
+        private System.Windows.Forms.ColumnHeader c3;
+        private System.Windows.Forms.ColumnHeader c4;
     }
 }

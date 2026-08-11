@@ -253,7 +253,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmItemManage";
-            this.Text = "FrmItemManage";
+            this.Text = "记账助手 名目维护";
             this.Load += new System.EventHandler(this.FrmItemManage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

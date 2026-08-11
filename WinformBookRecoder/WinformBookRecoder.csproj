@@ -94,8 +94,13 @@
     <Compile Include="FrmWeekSatistics.Designer.cs">
       <DependentUpon>FrmWeekSatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MonthInfo.cs" />
+    <Compile Include="Models\WeekInfo.cs" />
+    <Compile Include="Models\OutcomeInfo.cs" />
     <Compile Include="Models\IncomeInfo.cs" />
     <Compile Include="Models\ItemType.cs" />
+    <Compile Include="Models\DayInfo.cs" />
+    <Compile Include="Models\RecordInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\AppHelper.cs" />

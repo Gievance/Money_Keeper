@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.btn_exp_resatistic = new System.Windows.Forms.Button();
-            this.lvexpday = new System.Windows.Forms.ListView();
+            this.lvmonth = new System.Windows.Forms.ListView();
+            this.c1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.c2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.c3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.c4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.c5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label11 = new System.Windows.Forms.Label();
             this.lb_exp_month = new System.Windows.Forms.Label();
             this.lb_exp_income_month = new System.Windows.Forms.Label();
@@ -41,6 +46,7 @@
             // 
             // btn_exp_resatistic
             // 
+            this.btn_exp_resatistic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_exp_resatistic.BackColor = System.Drawing.Color.LimeGreen;
             this.btn_exp_resatistic.Font = new System.Drawing.Font("宋体", 16F);
             this.btn_exp_resatistic.Location = new System.Drawing.Point(857, 155);
@@ -49,20 +55,53 @@
             this.btn_exp_resatistic.TabIndex = 30;
             this.btn_exp_resatistic.Text = "重新统计";
             this.btn_exp_resatistic.UseVisualStyleBackColor = false;
+            this.btn_exp_resatistic.Click += new System.EventHandler(this.btn_exp_resatistic_Click);
             // 
-            // lvexpday
+            // lvmonth
             // 
-            this.lvexpday.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvmonth.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvexpday.GridLines = true;
-            this.lvexpday.HideSelection = false;
-            this.lvexpday.Location = new System.Drawing.Point(24, 222);
-            this.lvexpday.Name = "lvexpday";
-            this.lvexpday.Size = new System.Drawing.Size(1032, 705);
-            this.lvexpday.TabIndex = 29;
-            this.lvexpday.UseCompatibleStateImageBehavior = false;
-            this.lvexpday.View = System.Windows.Forms.View.Details;
+            this.lvmonth.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.c1,
+            this.c2,
+            this.c3,
+            this.c4,
+            this.c5});
+            this.lvmonth.Font = new System.Drawing.Font("宋体", 16F);
+            this.lvmonth.GridLines = true;
+            this.lvmonth.HideSelection = false;
+            this.lvmonth.Location = new System.Drawing.Point(24, 222);
+            this.lvmonth.Name = "lvmonth";
+            this.lvmonth.Size = new System.Drawing.Size(1029, 781);
+            this.lvmonth.TabIndex = 29;
+            this.lvmonth.UseCompatibleStateImageBehavior = false;
+            this.lvmonth.View = System.Windows.Forms.View.Details;
+            // 
+            // c1
+            // 
+            this.c1.Text = "年份";
+            this.c1.Width = 100;
+            // 
+            // c2
+            // 
+            this.c2.Text = "月份";
+            this.c2.Width = 100;
+            // 
+            // c3
+            // 
+            this.c3.Text = "月收入";
+            this.c3.Width = 150;
+            // 
+            // c4
+            // 
+            this.c4.Text = "月支出";
+            this.c4.Width = 150;
+            // 
+            // c5
+            // 
+            this.c5.Text = "月收益";
+            this.c5.Width = 150;
             // 
             // label11
             // 
@@ -153,9 +192,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 939);
+            this.ClientSize = new System.Drawing.Size(1065, 1015);
             this.Controls.Add(this.btn_exp_resatistic);
-            this.Controls.Add(this.lvexpday);
+            this.Controls.Add(this.lvmonth);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lb_exp_month);
             this.Controls.Add(this.lb_exp_income_month);
@@ -164,7 +203,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmMonthSatistics";
-            this.Text = "FrmWeekSatistics";
+            this.Text = "记账助手 月统计数据";
+            this.Load += new System.EventHandler(this.FrmMonthSatistics_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,7 +213,7 @@
         #endregion
 
         private System.Windows.Forms.Button btn_exp_resatistic;
-        private System.Windows.Forms.ListView lvexpday;
+        private System.Windows.Forms.ListView lvmonth;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lb_exp_month;
         private System.Windows.Forms.Label lb_exp_income_month;
@@ -181,5 +221,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader c1;
+        private System.Windows.Forms.ColumnHeader c2;
+        private System.Windows.Forms.ColumnHeader c3;
+        private System.Windows.Forms.ColumnHeader c4;
+        private System.Windows.Forms.ColumnHeader c5;
     }
 }

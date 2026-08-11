@@ -49,19 +49,18 @@ namespace WinformBookRecoder.Tools
 
         }
 
-        public static List<IncomeInfo> Get_IncomeList()
+        public static List<IncomeInfo> Get_InInfo()
         {
             List<IncomeInfo> Income_list = new List<IncomeInfo>();
             string incomepath = CommonHelper.IncomePath;
 
             List<string> datas = TextHelper.ReadTextAllLines(incomepath);
-
-            foreach(string s in datas)
+            for (int i = 1; i < datas.Count; i++)
             {
-                string[] arr = s.Trim().Split('\t');
+                string[] arr = datas[i].Trim().Split('\t');
                 IncomeInfo ic = new IncomeInfo();
-                
-                ic.incomeid = int.TryParse(arr[0],out int idval)?0:idval;
+
+                ic.incomeid = int.TryParse(arr[0], out int idval) ? 0 : idval;
                 ic.incomeitem = arr[1];
                 ic.incomedesc = arr[2];
                 ic.money = decimal.Parse(arr[3]);
@@ -69,7 +68,89 @@ namespace WinformBookRecoder.Tools
 
                 Income_list.Add(ic);
             }
+            //foreach (string s in datas)
+            //{
+            //    string[] arr = s.Trim().Split('\t');
+            //    IncomeInfo ic = new IncomeInfo();
+
+            //    ic.incomeid = int.TryParse(arr[0], out int idval) ? 0 : idval;
+            //    ic.incomeitem = arr[1];
+            //    ic.incomedesc = arr[2];
+            //    ic.money = decimal.Parse(arr[3]);
+            //    ic.incometime = arr[4];
+
+            //    Income_list.Add(ic);
+            //}
             return Income_list;
+        }
+
+        public static List<OutComeInfo> Get_OutInfo()
+        {
+            List<OutComeInfo> outcome_list = new List<OutComeInfo>();
+            string outpath = CommonHelper.OutcomePath;
+
+            List<string> datas = TextHelper.ReadTextAllLines(outpath);
+
+            for (int i = 1; i < datas.Count; i++)
+            {
+                string[] arr = datas[i].Trim().Split('\t');
+                OutComeInfo ic = new OutComeInfo();
+
+                ic.outcomeid = int.TryParse(arr[0], out int idval) ? 0 : idval;
+                ic.outcomeitem = arr[1];
+                ic.outcomedesc = arr[2];
+                ic.money = decimal.Parse(arr[3]);
+                ic.outcometime = arr[4];
+
+                outcome_list.Add(ic);
+            }
+            return outcome_list;
+        }
+
+        public static List<RecordInfo> GetAllRecord()
+        {
+            List<RecordInfo> relist = new List<RecordInfo>();
+
+            List<IncomeInfo> incomels = Get_InInfo();
+            List<OutComeInfo> outcomels = Get_OutInfo();
+            int id = 0;
+            if(incomels.Count>0)
+            {
+                
+                foreach(var income in incomels)
+                {
+                    id += 1;
+                    RecordInfo rec = new RecordInfo();
+                    rec.id = id;
+                    rec.itemtype = "收入";
+                    rec.itemname = income.incomeitem;
+                    rec.desc = income.incomedesc;
+                    rec.money = income.money;
+                    rec.time = DateTime.Parse(income.incometime);
+
+                    relist.Add(rec);
+                    
+                }
+            }
+            if (outcomels.Count > 0)
+            {
+                foreach (var outcome in outcomels)
+                {
+                    id += 1;
+                    RecordInfo rec = new RecordInfo();
+                    rec.id = id;
+                    rec.itemtype = "支出";
+                    rec.itemname = outcome.outcomeitem;
+                    rec.desc = outcome.outcomedesc;
+                    rec.money = outcome.money;
+                    rec.time = DateTime.Parse(outcome.outcometime);
+
+                    relist.Add(rec);
+                    
+                }
+            }
+
+            return relist;
         }
     }
     

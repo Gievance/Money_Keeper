@@ -422,7 +422,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
             this.Name = "FrmIncomeManage";
-            this.Text = "FrmIncomeManage";
+            this.Text = "记账助手 收入管理";
             this.Load += new System.EventHandler(this.FrmIncomeManage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
